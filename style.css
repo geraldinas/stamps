@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+    background-image: url('background1.png');
+    background-size: cover; 
+    background-position: center;
+}
+
+.stamped-image {
+    position: absolute;
+    width: 150px; 
+    height: 250px;
+    /* pointer-events: none;  */
+}
