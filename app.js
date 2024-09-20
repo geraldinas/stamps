@@ -2,8 +2,11 @@
 let imageCounter = null;
 let catImage = 'cat1.svg';
 let breadImage = 'bread-creature.png'
+let catImage2 = 'cat-2.svg'
+let catImage3 = 'cat-3.svg'
+let catImage4 = 'cat-4.svg'
 let currentStamp = catImage;
-let stamps = [breadImage,catImage];
+let stamps = [breadImage,catImage, catImage2, catImage4, catImage3];
 
 function getRandomImage() {
     return stamps[Math.floor(Math.random() * stamps.length)];
