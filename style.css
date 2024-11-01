@@ -21,3 +21,11 @@ body {
     height: 350px;
     filter: drop-shadow(0 0 0.75rem white);
 }
+
+/* ON MOBILE RESIzE*/
+@media (max-width: 600px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}

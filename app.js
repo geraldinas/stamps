@@ -48,6 +48,7 @@ function handleMouseClick(event) {
 
 }
 
-// Set up event listener for mouse down
+// Set up event listener for mouse down & //  touch on mobile
+document.addEventListener('touchstart', handleMouseClick);
 window.addEventListener('mousedown', handleMouseClick);
 window.addEventListener('keydown', handleMouseClick);
