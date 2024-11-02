@@ -5,4 +5,5 @@
   * createStampElement(); uses image Counter to pick between the first catImage, after a certain amount of clicks you are rewarded with a random cat 
   * positionStamp(element,x,y); Positions the given image element at the specified (x, y) coordinates, centering the image.
   * debounce() : https://dev.to/jeetvora331/javascript-debounce-easiest-explanation--29hc
-
+# LINK
+https://github.com/geraldinas/stamps
