@@ -48,7 +48,18 @@ function handleMouseClick(event) {
 
 }
 
+function debounce(callbackFunc, wait = 100) {
+    let timeout;
+    return (...args) => {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => callbackFunc.apply(this, args), wait);
+    };
+}
+
+// Create a debounced version of the handleMouseClick function with a 100ms delay prevents AS frequent calls to the window object.
+const debouncedHandleMouseClick = debounce(handleMouseClick);
+
 // Set up event listener for mouse down & //  touch on mobile
-document.addEventListener('touchstart', handleMouseClick);
-window.addEventListener('mousedown', handleMouseClick);
-window.addEventListener('keydown', handleMouseClick);
+document.addEventListener('touchstart', debouncedHandleMouseClick);
+window.addEventListener('mousedown', debouncedHandleMouseClick);
+window.addEventListener('keydown', debouncedHandleMouseClick);
