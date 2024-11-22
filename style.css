@@ -1,5 +1,20 @@
-body {
+/* Base styles */
+:root {
+    --stamp-width: 250px;
+    --stamp-height: 350px;
+    --shadow-color: rgba(255, 255, 255, 0.75);
+    --title-font: 'Courier New', Courier, monospace;
+}
+
+/* Reset and base styles */
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main container */
+body {
     height: 100vh;
     overflow: hidden;
     position: relative;
@@ -7,28 +22,87 @@ body {
     background-image: url('background1.png');
     background-size: cover; 
     background-position: center;
+    background-repeat: no-repeat;
+    /* Improve performance */
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
 }
 
+/* Header styles */
 .title {
-    font-family:'Courier New', Courier, monospace;
-    font-size: 30px;
-    margin-left: 20px;
+    font-family: var(--title-font);
+    font-size: clamp(1.25rem, 4vw, 1.875rem); /* Responsive font size */
+    margin: 1.25rem;
+    color: #333;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+    /* Improve readability */
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
+/* Stamp image styles */
 .stamped-image {
     position: absolute;
-    width: 250px; 
-    height: 350px;
-    filter: drop-shadow(0 0 0.75rem white);
+    width: var(--stamp-width);
+    height: var(--stamp-height);
+    filter: drop-shadow(0 0 0.75rem var(--shadow-color));
+    transition: transform 0.2s ease-out;
+    /* Improve performance */
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
-/* ON MOBILE RESIzE*/
-@media (max-width: 600px) {
-    .container {
-        width: 100%;
-        padding: 10px;
+/* Hover effect for desktop */
+@media (hover: hover) {
+    .stamped-image:hover {
+        transform: scale(1.05);
+        filter: drop-shadow(0 0 1rem var(--shadow-color));
     }
-    .title{
-    font-size: 20px;
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+    :root {
+        --stamp-width: 150px;
+        --stamp-height: 210px;
+    }
+
+    .title {
+        font-size: 1.25rem;
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .title {
+        background-color: white;
+        color: black;
+        text-shadow: none;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .stamped-image {
+        transition: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    .title {
+        text-shadow: none;
+        background: none;
+        color: black;
+    }
+    
+    body {
+        background: none;
     }
 }
